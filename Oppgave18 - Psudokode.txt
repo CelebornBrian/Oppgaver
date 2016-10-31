@@ -1,0 +1,31 @@
+//Oppgave18
+//Kassaapperat i butikk
+/*
+DO{
+WHILE <kommando er ikke V A E eller S>
+<kommando V A E eller S>
+SWITCH 
+	<Hvis V, lese inn vare, legge til totalsum
+	<Ut sum variabel og totalsum variabel>
+
+	<Hvis A, trekke sum fra totalsum>
+	<Ut totalsum>
+
+	<Hvis E, Spør om et beløp, IF dette tallet er over 0 og/eller under totalsum>
+		<totalsum minus beløp>
+		ELSE <Feilmelding>
+	<Hvis S, eneste mulighet, programmet går videre>
+<Skrive ut totalsum, legges til allesummer>
+
+WHILE kommando2 ikke er T R N eller Q>
+<kommando2 T R N eller Q>
+SWITCH
+	<Hvis T, be om beløp, IF større en totalsum>
+		<tilbake beløp - totalsum>
+		ELSE <Feilmelding>
+	<Hvis R, skriv ut allesummer>'
+	<Hvis N, do løkke er sann, start på nytt>
+	<Hvis Q, avslutt program>
+WHILE <kommando2 ikke er N>
+<Skriv ut allesummer>
+return 0;
