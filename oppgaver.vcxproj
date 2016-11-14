@@ -18,6 +18,9 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Oppgave_51.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{6D3B987C-65EF-4ADF-9A16-299D24BDDC7A}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
