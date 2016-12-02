@@ -1,0 +1,21 @@
+S  P  R  I  N  G  S  T  E  E  N  -  O  G  -  S  T  I  N  G  -  H  A  R  -  N  E  T  T  O  P  P  -  S  P  I  L  T 
+0  1  2  3  4  5  6  7  8  9 10 11 12 13 14  15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37
+
+-  I  -  O  S  L  O  -  O  G  -  H  A  M  A  R
+38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53
+i = 2
+j = 2
+k = 17
+
+1: L I S
+2: I -
+3: G G
+4: A N
+5: H I
+
+
+1: Mysuseter,2674 Lom,2686 Ustaoset,3539
+2: 12
+3: s m
+4: Mysuseter,12
+5: s s
