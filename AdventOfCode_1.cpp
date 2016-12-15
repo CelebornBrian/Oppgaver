@@ -86,27 +86,16 @@ void Grid::skrivAlt() {
 void lesFraFil() {
 	ifstream innfil("AdventOfCode_1.txt");
 	char ch;
+	int i;
 	if (innfil)
 	{
-		innfil >> ch;
-		while (!innfil.eof())
+		
+		while (innfil >> ch >> i)
 		{
-			if (isdigit(ch))
-			{
-				int i = ch - '0';
-				Bunny.posisionChange(i);
-			}
-			else if (isalpha(ch))
-			{
-				Bunny.directionChange(ch);
-			}
-			else
-			{
-				cout << "Read Error";
-			}
-			innfil >> ch;
+			Bunny.directionChange(ch);
+			Bunny.posisionChange(i);
+			//cout << ch << " " << i << endl;
 		}
-
 	}
 	else
 	{
