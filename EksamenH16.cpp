@@ -7,7 +7,9 @@
 //  Programmet holder orden på ulike utlegg/utgifter en person har ifm. en
 //  felles vennetur, og hvem av deltagerne som skal betale og har betalt
 //  hva av utleggene.
-
+#ifdef _MSC_VER
+#define _CRT_SECURE_NO_WARNINGS
+#endif 
 
 //  INCLUDE:
 #include <fstream>				//  ifstream, ofstream
@@ -51,6 +53,7 @@ public:					//  Deklarasjon/definisjon av medlemsfunksjoner:
 	void lesData();								//  Oppgave 2D
 	void registrerBetaling(int n);				//  Oppgave 2E
 	void lesFraFil(ifstream & inn);				//  Oppgave 2G
+	int returnGjeld(int delnr);
 };
 
 //  DEKLARASJON AV FUNKSJONER:
@@ -198,6 +201,15 @@ void Utlegg::lesFraFil(ifstream & inn) {   //  Leser ALT fra fil:
 	inn.ignore();
 }
 
+int Utlegg::returnGjeld(int delnr)
+{
+	if (betalt[delnr] == 1)
+	{
+		return prisPrPerson;
+	}
+	return 0;
+}
+
 
 // **********************   DEFINISJON AV FUNKSJONER:    *********************
 
@@ -261,11 +273,11 @@ void skrivAlt() {				//  Skriver ALLE deltagerne og utleggene:
 								//  Oppgave 2C:  Lag innmaten
 	for (int i = 1; i <= sisteDeltager; i++)
 	{
-		cout << i << ": " << deltagere[i].skrivData() << '+n';
+		cout << i << ": "; deltagere[i].skrivData();
 	}
 	for (int j = 1; j <= sisteUtlegg; j++)
 	{
-		cout << j << ": " << utlegg[j].skrivData() << '\n';
+		cout << j << ": ";  utlegg[j].skrivData();
 	}
 }
 
@@ -305,13 +317,10 @@ void deltagerneSkylder() {		//  Skriver hva hver enkelt deltager skylder:
 	int i, sum = 0, j;
 	for (int i = 1; i <= sisteDeltager; i++)
 	{
-		deltagere[i].skrivNavn; cout << '\t';
+		deltagere[i].skrivNavn(); cout << '\t';
 		for (int j = 1; j <= sisteUtlegg; j++)
 		{
-			if (betalt[i] == 0)
-			{
-				sum += prisPerPerson;
-			}
+			sum += utlegg[j].returnGjeld(i);
 		}
 		cout << "Skylder: " << sum;
 	}
@@ -323,7 +332,7 @@ void lesFraFil() {				//  Leser HELE datastrukturen fra fil:
 	ifstream innfil("UTLEGG.DTA");
 	if (innfil)
 	{
-		innfil >> sisteUtlegg; inn.ignore();
+		innfil >> sisteUtlegg; innfil.ignore();
 		for (int i = 1; i <= sisteUtlegg; i++)
 		{
 			utlegg[i].lesFraFil(innfil);
