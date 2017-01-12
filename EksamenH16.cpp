@@ -135,21 +135,22 @@ Utlegg::Utlegg() {			//  Initierer/"nullstiller" objektet:
 void Utlegg::skrivData() {	//  Skriver ALLE data:
 							//  Oppgave 2C:  Lag innmaten
 	cout << hva << " " << prisPrPerson << '\n';
-	for (int i = 1; i <= MAXDELTAGERE; i++)
+	for (int i = 1; i <= sisteDeltager; i++)
 	{
-		deltagere[i].skrivNavn(); cout << '\t';
+		cout << "\t\t";  deltagere[i].skrivNavn(); cout << '\t';
 		if (betalt[i] == -1)
 		{
-			cout << "Melding 1";
+			cout << "---------";
 		}
 		else if (betalt[i] == 0)
 		{
-			cout << "Melding 2";
+			cout << "IKKE BETALT";
 		}
 		else
 		{
 			cout << prisPrPerson;
 		}
+		cout << '\n';
 	}
 }
 
@@ -158,10 +159,10 @@ void Utlegg::lesData() {	//  Leser utlegget og hvem skal betale:
 							//  Oppgave 2D:  Lag innmaten
 	les("Navn på utlegg: ", hva, STRLEN);
 	prisPrPerson = les("Pris per pers:", 1, MAXPRPERSON);
-	for (int i = 1; i <= MAXDELTAGERE; i++)
+	for (int i = 1; i <= sisteDeltager; i++)
 	{
 		deltagere[i].skrivNavn();
-		cout << '\n' << "Skal betale? (J\n)";
+		cout << '\n' << "Skal betale? (J/n)";
 		char ch = les();
 		if (ch == 'J')
 		{
@@ -194,7 +195,7 @@ void Utlegg::lesFraFil(ifstream & inn) {   //  Leser ALT fra fil:
 										   //  Oppgave 2G:  Lag innmaten
 	inn.getline(hva, STRLEN);
 	inn >> prisPrPerson; inn.ignore();
-	for (int k = 1; k <= MAXDELTAGERE + 1; k++)
+	for (int k = 1; k <= sisteDeltager; k++)
 	{
 		inn >> betalt[k];
 	}
@@ -273,11 +274,11 @@ void skrivAlt() {				//  Skriver ALLE deltagerne og utleggene:
 								//  Oppgave 2C:  Lag innmaten
 	for (int i = 1; i <= sisteDeltager; i++)
 	{
-		cout << i << ": "; deltagere[i].skrivData();
+		cout << i << ": "; deltagere[i].skrivData(); cout << '\n';
 	}
 	for (int j = 1; j <= sisteUtlegg; j++)
 	{
-		cout << j << ": ";  utlegg[j].skrivData();
+		cout << j << ": ";  utlegg[j].skrivData(); cout << '\n';
 	}
 }
 
@@ -314,38 +315,37 @@ void registrerBetaling() {		// Registrerer innbetaling(er):
 
 void deltagerneSkylder() {		//  Skriver hva hver enkelt deltager skylder:
 								//  Oppgave 2F:  Lag innmaten
-	int i, sum = 0, j;
+	int sum = 0;
 	for (int i = 1; i <= sisteDeltager; i++)
 	{
-		deltagere[i].skrivNavn(); cout << '\t';
+		deltagere[i].skrivNavn(); cout << "  ";
 		for (int j = 1; j <= sisteUtlegg; j++)
 		{
 			sum += utlegg[j].returnGjeld(i);
 		}
-		cout << "Skylder: " << sum;
+		cout << "Skylder: " << sum << '\t';
 	}
 }
 
 
 void lesFraFil() {				//  Leser HELE datastrukturen fra fil:
 								//  Oppgave 2G:  Lag innmaten
-	ifstream innfil("UTLEGG.DTA");
+	ifstream innfil("DELTAGERE.DTA");
 	if (innfil)
 	{
-		innfil >> sisteUtlegg; innfil.ignore();
-		for (int i = 1; i <= sisteUtlegg; i++)
-		{
-			utlegg[i].lesFraFil(innfil);
-		}
-	}
-	ifstream innfil2("DELTAGERE.DTA");
-	if (innfil2)
-	{
-		innfil2 >> sisteDeltager; innfil2.ignore();
+		innfil >> sisteDeltager; innfil.ignore();
 		for (int j = 1; j <= sisteDeltager; j++)
 		{
 			deltagere[j].lesFraFil(innfil);
 		}
 	}
-
+	ifstream innfil2("UTLEGG.DTA");
+	if (innfil2)
+	{
+		innfil2 >> sisteUtlegg; innfil2.ignore();
+		for (int i = 1; i <= sisteUtlegg; i++)
+		{
+			utlegg[i].lesFraFil(innfil2);
+		}
+	}
 }
