@@ -95,7 +95,9 @@ void lesFraFil() {
 			Bunny.directionChange(ch);
 			Bunny.posisionChange(i);
 			//cout << ch << " " << i << endl;
+			//Bunny.skrivAlt();
 		}
+
 	}
 	else
 	{
