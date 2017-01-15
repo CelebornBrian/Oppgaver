@@ -1,5 +1,11 @@
-//Opppgave 1 - kapp5 - boka
+//Per-Kristian ******* ****
+//Studentnummer: ******
+//Klasse: ********** - *******
+//Opppgave 3 - kapp5 - boka
 //Funksjon for å sette den minste av 2 verdier til 0
+#ifdef _MSC_VER
+#define _CRT_SECURE_NO_WARNINGS
+#endif 
 #include <iostream>
 using namespace std;
 

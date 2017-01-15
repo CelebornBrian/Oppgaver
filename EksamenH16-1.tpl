@@ -1,5 +1,11 @@
-﻿//  Fil:   FRODEH \ C++ \ EXTRAMEN \ EX_S16_2.TPL
-
+﻿//Per-Kristian ******* ****
+//Studentnummer: ******
+//Klasse: ********** - *******
+//
+//
+#ifdef _MSC_VER
+#define _CRT_SECURE_NO_WARNINGS
+#endif 
 //  Skjellettet/template for kontinuasjonseksamen i C++, august 2016, oppgave 2.
 //  Laget av Frode Haug, HiG, NTNU
 

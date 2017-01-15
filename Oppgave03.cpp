@@ -1,5 +1,11 @@
-///*//Oppgave 3
+//Per-Kristian ******* ****
+//Studentnummer: ******
+//Klasse: ********** - *******
+//Oppgave 3
 //Printe hardkodede statements
+#ifdef _MSC_VER
+#define _CRT_SECURE_NO_WARNINGS
+#endif
 #include <iostream>
 
 using namespace std;
