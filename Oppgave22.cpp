@@ -30,7 +30,7 @@ private:
 	int stilKarakter[ANTALLSTILKARAKTERER];
 public:
 	Hopper();
-	void les(char n[]);
+	void les2(char n[]);
 	void hopp();
 };
 
@@ -51,7 +51,7 @@ int main() {
 	for (int i = 1; i <= ANTALLHOPPERE; i++)
 	{
 		les("Navn: ", navn, STRLEN);
-		hoppere[i].les(navn);
+		hoppere[i].les2(navn);
 	}
 	return 0;
 }
@@ -62,14 +62,14 @@ Hopper::Hopper()
 {
 	strcpy(navn, ""); poengsum = 0; lengde = -1;
 }
-void Hopper::les(char n[]) {
+void Hopper::les2(char n[]) {
 	strcpy(navn, n);
 }
 void Hopper::hopp() {
-	lengde = les("Lengde på hopp: ", MINHOPPLENGDE, MAXHOPPLENGDE);
+	lengde = ::les("Lengde på hopp: ", MINHOPPLENGDE, MAXHOPPLENGDE);
 	for (int i = 0; i < ANTALLSTILKARAKTERER; i++)
 	{
-		stilKarakter[i] = les("Stilkarakter: ", MINSTILKAR, MAXSTILKAR);
+		stilKarakter[i] = ::les("Stilkarakter: ", MINSTILKAR, MAXSTILKAR);
 	}
 }
 

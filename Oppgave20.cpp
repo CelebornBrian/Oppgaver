@@ -1,44 +1,55 @@
 //Oppgave 20
-//Skrive inn lovlig dato og si hvilket dagsnummer i året det er
+//Dagnummer
+
 #include <iostream>
 using namespace std;
 
-void lesDato(int dd &, int mm &, int aaaa &)
-bool skudaar(int aaaa)
-int antallDager(int maaned, int aar)
-int dagNummer(int dd, int mm, int aaaa)
+//  DEKLARASJON AV FUNKSJONER:
 
+bool skuddaar(int aa);
+int dagnummer(int & da, int & ma, int & aa);
+void les(int & da, int & maane, int & aa);
 
-void lesDato(int d&, int m&, int aa&) {
-	int d, m, aa;
-	cout << "Skriv inn datoen i format \"dd mm aaaa\"";
-	cin >> d >> m >> aa;
-}
-
-bool skudaar(int skudaar) {
-	return((skudaar % 400 == 0) || ((skudaar % 4 == 0) && (skudaar % 100) != 0));
-}
-
-int antallDager(int maaned, int aar) {
-	switch (maaned)
+int main() {
+	int dag, maaned, aar, totalDagnr;
+	do
 	{
-	case 1: case 3: case 5: case 7: case 8: case 10: case 12: return 31; break;
-	case 4: case 6: case 9: case 11: return 30; break;
-	case 2: if (skudaar(aar)) return 29; else return 28; break;
-	}
+		les(dag, maaned, aar);
+		if ((totalDagnr = dagnummer(dag, maaned, aar)) != 0)
+		{
+			cout << "Datoen er " << totalDagnr << " dager inn i aaret.\n\n";
+		}
+	} while (totalDagnr != 0);
+	cout << "Ikke gyldig dato, program avsluttes.\n\n";
+
+	return 0;
 }
 
-int dagNummer(int dd, int mm, int aaaa) {
-	int dagnummer;
-	if (dd > antallDager(mm, aaaa) || dd < 1) return 0;
-	if (mm > 12 || mm < 1) return 0;
-	if (aaaa > 2100 || aaaa < 1600) return 0;
-	dagnummer = dd;
-	for (int i = 0; i < (mm - 1); i++)
-	{
-		dagnummer += antallDager(i, aaaa);
-	}
-	dagnummer += dd;
-	return dagnummer;
+// ***********************  DEFINISJON AV FUNKSJONER:  ***********************
+bool skuddaar(int aa) {    //  Sjekker om et visst år er skuddår:
+								//  Skuddår dersom: (delelig med 400) ELLER 
+								//    (delelig med 4 OG ikke med 100)
+	return ((aa % 400 == 0) || ((aa % 4 == 0) && (aa % 100) != 0));
 }
+int dagnummer(int & da, int & ma, int & aa) {
+	//  Setter opp antall dager i månedene.
+	//   Verdien for februar settes senere.
+	int dagerPrMaaned[12] = { 31, 0, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+	int totalDagnr, i;
+	if (aa < 1600 || aa > 2100) return 0;    //  Ulovlig år.
+	if (ma < 1 || ma > 12)   return 0;    //  Ulovlig måned.
+										  //Ut fra om året er skuddår eller ei
+	dagerPrMaaned[1] = (skuddaar( aa)) ? 29 : 28;//så settes februar verdien
+	if (da < 1 || da > dagerPrMaaned[ma - 1])  return 0;  // Ulovlig dag:
+														  //  Garantert at er en lovlig dato!!
+	totalDagnr = da;
+	for (i = 0; i < ma - 1; i++)              // Regner ut datoens dagnummer.
+		totalDagnr += dagerPrMaaned[i];
 
+	return totalDagnr;                          // Returnerer dagnummeret.
+}
+//  Leser inn og returnerer verdi i [MIN, MAX]:
+void les(int & da, int & maane, int & aa) {
+	cout << "Skriv inn dato paa formen dd mm aaaa: ";
+	cin >> da >> maane >> aa;
+}
