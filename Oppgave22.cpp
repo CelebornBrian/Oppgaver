@@ -3,9 +3,7 @@
 //Klasse: ********** - *******
 //Oppgave 22 
 //Hoppere
-#ifdef _MSC_VER
-#define _CRT_SECURE_NO_WARNINGS
-#endif 
+
 #ifdef _MSC_VER
 #define _CRT_SECURE_NO_WARNINGS
 #endif 
@@ -92,11 +90,10 @@ void Hopper::hopp() {
 
 void Hopper::poengSum()
 {
-	float lengdePoeng, stilPoeng;
+	int  stilPoeng;
 	sorterKarakter();
-	lengdePoeng = (70 + ((lengde - 80) * 1.4));
 	stilPoeng = (stilKarakter[1] + stilKarakter[2] + stilKarakter[3]);
-	poengsum = (lengdePoeng + stilPoeng);
+	poengsum = ((70 + ((lengde - 80) * 1.4)) + stilPoeng);
 }
 void Hopper::sorterKarakter() {
 	int i, j, temp = stilKarakter[0];
