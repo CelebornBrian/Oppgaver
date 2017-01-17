@@ -1,6 +1,12 @@
+//Per-Kristian ******* ****
+//Studentnummer: ******
+//Klasse: ********** - *******
 //Oppgave 8
 //Be om heltall frem til 0 eller negative tall så skrive ut 
 //hvor mange tall, total sum og gjennomsnitt av de inskrevene tall
+#ifdef _MSC_VER
+#define _CRT_SECURE_NO_WARNINGS
+#endif 
 
 #include <iostream>
 using namespace std;

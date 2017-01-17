@@ -1,5 +1,12 @@
+//Per-Kristian ******* ****
+//Studentnummer: ******
+//Klasse: ********** - *******
 //Oppgave 1 i boka kappitel 5
 //Fuksjon for areal av sirkel
+#ifdef _MSC_VER
+#define _CRT_SECURE_NO_WARNINGS
+#endif 
+
 #include <iostream>
 using namespace std;
 

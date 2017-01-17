@@ -1,6 +1,12 @@
+//Per-Kristian ******* ****
+//Studentnummer: ******
+//Klasse: ********** - *******
 //Oppgave 49
 //Skrive ut tallene opp til 45 med andre ord
 //når det er divisable med 3 og 5
+#ifdef _MSC_VER
+#define _CRT_SECURE_NO_WARNINGS
+#endif 
 #include <iostream> 
 using namespace std;
 

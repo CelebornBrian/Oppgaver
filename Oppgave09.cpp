@@ -1,6 +1,12 @@
-//Oppgave9
+//Per-Kristian ******* ****
+//Studentnummer: ******
+//Klasse: ********** - *******
+ //Oppgave9
 //Program som leser inn to heltall, deretter adderer
 //subtrakterer og multipliserer disse før det blir spurt om dette skal gjøres igjen
+#ifdef _MSC_VER
+#define _CRT_SECURE_NO_WARNINGS
+#endif
 
 #include <iostream>
 using namespace std;

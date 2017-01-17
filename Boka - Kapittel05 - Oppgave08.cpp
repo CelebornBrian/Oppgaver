@@ -1,5 +1,11 @@
+//Per-Kristian ******* ****
+//Studentnummer: ******
+//Klasse: ********** - *******
 //Oppgave 8 - kapp5 - boka
 //Bytter om to verdier
+#ifdef _MSC_VER
+#define _CRT_SECURE_NO_WARNINGS
+#endif 
 #include <iostream>
 using namespace std;
 
