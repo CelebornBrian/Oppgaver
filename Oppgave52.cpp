@@ -1,5 +1,11 @@
+//Per-Kristian ******* ****
+//Studentnummer: ******
+//Klasse: ********** - *******
 //Oppgave 52
 //Skrive ut 10 og 10 tall, evig
+#ifdef _MSC_VER
+#define _CRT_SECURE_NO_WARNINGS
+#endif 
 #include <iostream>
 #include <cctype>
 using namespace std;

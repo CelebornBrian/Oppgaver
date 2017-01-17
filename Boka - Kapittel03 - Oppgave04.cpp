@@ -1,6 +1,11 @@
+//Per-Kristian ******* ****
+//Studentnummer: ******
+//Klasse: ********** - *******
 //Oppgave4 fra side 127 i læreboka
 //Four function calculator
-
+#ifdef _MSC_VER
+#define _CRT_SECURE_NO_WARNINGS
+#endif 
 #include <iostream>
 using namespace std;
 

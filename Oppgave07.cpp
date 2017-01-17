@@ -1,5 +1,11 @@
-//Oppgave 7
-
+//Per-Kristian ******* ****
+//Studentnummer: ******
+//Klasse: ********** - *******
+//Oppgave 07
+//Regne volum for sirkler opp til 20
+#ifdef _MSC_VER
+#define _CRT_SECURE_NO_WARNINGS
+#endif
 #include <iostream>
 using namespace std;
 

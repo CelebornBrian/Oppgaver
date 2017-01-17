@@ -1,5 +1,6 @@
-
-//  Fil:   FRODEH \ C++ \ EXTRAMEN \ EX_H16_2.TPL
+//Per-Kristian ******* ****
+//Studentnummer: ******
+//Klasse: ********** - *******
 
 //  Skjellettet/template for eksamen i C++, desember 2016, oppgave 2.
 //  Laget av Frode Haug, HiG, NTNU
@@ -330,7 +331,7 @@ void deltagerneSkylder() {		//  Skriver hva hver enkelt deltager skylder:
 
 void lesFraFil() {				//  Leser HELE datastrukturen fra fil:
 								//  Oppgave 2G:  Lag innmaten
-	ifstream innfil("DELTAGERE.DTA");
+	ifstream innfil("DATDELTAGERE.DTA");
 	if (innfil)
 	{
 		innfil >> sisteDeltager; innfil.ignore();
@@ -339,7 +340,7 @@ void lesFraFil() {				//  Leser HELE datastrukturen fra fil:
 			deltagere[j].lesFraFil(innfil);
 		}
 	}
-	ifstream innfil2("UTLEGG.DTA");
+	ifstream innfil2("DATUTLEGG.DTA");
 	if (innfil2)
 	{
 		innfil2 >> sisteUtlegg; innfil2.ignore();
