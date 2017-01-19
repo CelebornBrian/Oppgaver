@@ -15,12 +15,6 @@ using namespace std;
 //  CONST:
 const int STRLEN = 200;
 
-//  ENUM:
-
-
-//  STRUCT
-
-
 //  KLASSE:
 
 class LavesteTemp{
@@ -52,14 +46,11 @@ void LavesteTemp::lesFraFil(ifstream & innfil) {
 	char dato[11], buffer[STRLEN];
 	float temp, minste;
 	innfil >> dato;
-	//cout << dato; // [3] << dato[4];
 	if (dato[3] == '1' && dato[4] == '2')
 	{
 		innfil >> temp >> minste;
-		//cout << temp << "  " << minste << endl;
 		if (minste < kaldest)
 		{
-			//cout << dato << "\n\t" << minste << endl;
 			kaldest = minste;
 			for (int i = 0; i <= 11; i++)
 			{
