@@ -15,10 +15,10 @@ public:
 
 	void operator += (const int rhs);
 	void operator -= (const int rhs);
-	Tid  operator + (const Tid & rhs);
-	Tid operator - (const Tid & rhs);
-	bool operator == (const Tid & rhs);
-	bool operator < (const Tid & rhs);
+	Tid  operator + (const Tid & rhs)const;
+	Tid operator - (const Tid & rhs)const;
+	bool operator == (const Tid & rhs)const;
+	bool operator < (const Tid & rhs)const;
 
 };
 
@@ -46,12 +46,14 @@ int main() {
 
 void Tid::operator += (const int rhs)
 {
-	minutt += rhs;
+	int tot = time * 60 + minutt + rhs;
+	time = tot / 60; minutt = tot % 60;
+	/*minutt += rhs;
 	while (minutt > 59)
 	{
 		time++;
 		minutt -= 60;
-	}
+	}*/
 }
 
 void Tid::operator -= (const int rhs) {
@@ -63,7 +65,7 @@ void Tid::operator -= (const int rhs) {
 	}
 }
 
-Tid Tid::operator + (const Tid & rhs) {
+Tid Tid::operator + (const Tid & rhs) const {
 	Tid temp;
 	temp.minutt = minutt + rhs.minutt;
 	while (temp.minutt > 59)
@@ -75,7 +77,7 @@ Tid Tid::operator + (const Tid & rhs) {
 	return temp;
 }
 
-Tid Tid::operator - (const Tid & rhs) {
+Tid Tid::operator - (const Tid & rhs) const {
 	Tid temp;
 	temp.minutt = (minutt - rhs.minutt);
 	while (temp.minutt < 0)
@@ -87,8 +89,9 @@ Tid Tid::operator - (const Tid & rhs) {
 	return temp;
 }
 
-bool Tid::operator == (const Tid & rhs) {
-	if (minutt != rhs.minutt)
+bool Tid::operator == (const Tid & rhs) const {
+	return (time == rhs.time && minutt == rhs.minutt);
+	/*if (minutt != rhs.minutt)
 	{
 		return false;
 	}
@@ -96,10 +99,10 @@ bool Tid::operator == (const Tid & rhs) {
 	{
 		return false;
 	}
-	else return true;
+	else return true;*/
 }
 
-bool Tid::operator < (const Tid & rhs) {
+bool Tid::operator < (const Tid & rhs) const {
 	if (time < rhs.time)
 	{
 		return true;
@@ -114,11 +117,9 @@ bool Tid::operator < (const Tid & rhs) {
 void Tid::skrivTid() {
 	if (time > 0)
 	{
+		//cout << "Ugyldig Tid!" << endl; //Operatorer burde ikke skrive meldinger!
+		time = minutt = 0;
+	}
 	cout << ((time < 10) ? "0" : "") << time << ":"
 		<< ((minutt < 10) ? "0" : "") << minutt << endl;
-	}
-	else
-	{
-		cout << "Ugyldig Tid!" << endl;
-	}
 }
