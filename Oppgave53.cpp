@@ -77,10 +77,10 @@ void lesFraFil()
 	ifstream innfil("DATBLINDERN.DAT");
 	if (innfil)
 	{
-		for (int i = 0; i < 24; i++)
+		/*for (int i = 0; i < 24; i++)
 		{
 			innfil.getline(buffer, STRLEN);
-		}
+		}*/
 		innfil >> t1;
 		while (t1 == 18700)
 		{

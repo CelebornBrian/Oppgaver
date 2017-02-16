@@ -23,7 +23,7 @@
 
 class  {
 private:
-
+protected:
 public:
 
 };
