@@ -30,7 +30,8 @@ public:
 };
 
 int main() {
-	itemType variabel[] = "EAS*Y**QUE***ST***I*ON**";
+	//itemType variabel[] = "EAS*Y**QUE***ST***I*ON**";
+	itemType variabel[] = "ABC+DE**F+*";
 	Stack main;
 	for (int i = 0; i < strlen(variabel+1); i++)
 	{
