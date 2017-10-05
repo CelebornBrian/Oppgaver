@@ -9,7 +9,7 @@
 #include <iostream>
 using namespace std;
 
-const int antallFlasker = 24;
+const int antallFlasker = 1000;
 
 int main() {
 	for (int i = antallFlasker; i > 2; i--)

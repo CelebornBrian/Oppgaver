@@ -36,7 +36,7 @@ int main()
 			{
 			cout << "Feil! Dele på null er tull";
 			}
-				  else akkumulator /= tall; break;
+			else akkumulator /= tall; break;
 		case 't': cin >> tall; akkumulator = tall;  break;
 		case 'c': akkumulator = 0.000F; break;
 		default: cout << "Feil! Ukjent kommando gitt"; break;
@@ -47,3 +47,4 @@ int main()
 	cout << "\n Enkel kalkulator stopper.\n";
 	return 0;
 }
+
